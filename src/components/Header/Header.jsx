@@ -4,6 +4,7 @@ import logo from '../../images/logo.png'
 import Button from '@mui/material/Button';
 import { MdOutlineMenuOpen } from "react-icons/md";
 import { MdOutlineMenu } from "react-icons/md";
+import SearchBox from '../search box/SearchBox';
 
 const Header = () => {
   return (
@@ -19,8 +20,9 @@ const Header = () => {
                 </Link>
 
             </div>
-            <div className="col-xs-3 d-flex align-items-center part2" style={{paddingLeft:"40px"}}>
+            <div className="col-sm-3 d-flex align-items-center part2" style={{paddingLeft:"40px"}}>
             <Button className='rounded-circle'><MdOutlineMenuOpen/></Button>
+            <SearchBox/>
             </div>
 
 
