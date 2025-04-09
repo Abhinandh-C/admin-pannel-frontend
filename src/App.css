@@ -28,3 +28,16 @@ min-width: 40px !important; width: 40px !important; height: 40px !important;
  background: #f0f5ff !important; color: #292929;
 }
 header button.rounded-circle svg{color: #292929; font-size: 18px;}
+
+.searchbox{
+    padding:5px 15px;
+    width: 400px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #f0f5ff;
+    
+}
+
+.searchIcon{
+    margin-right: 10px;
+}
