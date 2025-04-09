@@ -15,10 +15,16 @@ header .logo img{
 }
 
 header .logo span{
-    color: black;
+    color: black; font-weight: 800; font-size: 24px;
     
 }
 
-header .logo a{
+header .logo{
     text-decoration: none !important;
 }
+
+header button.rounded-circle{
+min-width: 40px !important; width: 40px !important; height: 40px !important;
+ background: #f0f5ff !important; color: #292929;
+}
+header button.rounded-circle svg{color: #292929; font-size: 18px;}
