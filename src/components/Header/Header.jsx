@@ -1,21 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.png'
+import Button from '@mui/material/Button';
+import { MdOutlineMenuOpen } from "react-icons/md";
+import { MdOutlineMenu } from "react-icons/md";
 
 const Header = () => {
   return (
     <div>
       <header className='d-flex align-items-center'>
         <div className="container-fluid w-100 ">
-           <div className="row d-flex align-items-center">
+           <div className="raw d-flex align-items-center">
         {/* logo wrapper */}
-            <div className="col-xs-3 d-flex align-items-center logo">
-                <Link to={'/'}>
-                <img src={logo} alt="logo" />
+            <div className="col-sm-2 part1">
+                <Link to={'/'} className=' d-flex align-items-center  logo'>
+                <img src={logo} alt="logo"  />
                 <span>GO CART</span>
                 </Link>
 
             </div>
+            <div className="col-xs-3 d-flex align-items-center part2" style={{paddingLeft:"40px"}}>
+            <Button className='rounded-circle'><MdOutlineMenuOpen/></Button>
+            </div>
+
+
+
+
            </div>
         </div>
       </header>
