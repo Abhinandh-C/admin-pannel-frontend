@@ -27,7 +27,20 @@ header button.rounded-circle{
 min-width: 40px !important; width: 40px !important; height: 40px !important;
  background: #f0f5ff !important; color: #292929; margin: 10px;
 }
-header button.rounded-circle svg{color: #292929; font-size: 18px;}
+header button.rounded-circle svg{color: #292929; font-size: 18px; transition: 0.2s ease-in-out;}
+
+
+.rounded-circle svg:hover{
+    color: #0585f7;
+}
+
+
+
+
+
+
+
+
 
 .searchbox{
     padding:5px 15px;
@@ -49,7 +62,7 @@ header button.rounded-circle svg{color: #292929; font-size: 18px;}
     overflow: hidden;
     width: 40px;
     height: 40px;
-    border: 2px solid #3b57e1;
+    border: 2px solid #0585f7;
     border-radius: 100%;
     
 }
@@ -66,4 +79,45 @@ position: relative;
 }
 .myAcc .userImg .rounded-circle img{object-fit: cover;
 width: 100%;
+}
+
+.name{
+    color: black !important;
+  
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin-bottom: 0px !important;
+    text-align: left !important;
+}
+.userInfo{
+    padding-left: 10px;
+}
+
+.userInfo p{
+    text-transform: none !important;
+    margin-top: 0px;
+    font-size: 12px;
+    color: black;
+    opacity: 0.7;
+}
+
+#account li{
+    font-size: 14px !important;
+    padding: 12px 15px !important;
+
+}
+#account li svg{
+    font-size: 20px !important;
+}
+
+.head h4{
+    font-size: 16px !important;
+    margin: 0% !important;
+}
+
+.set{font-size: 16px !important;}
+.head{
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom: 10px;
 }
