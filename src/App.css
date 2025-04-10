@@ -55,7 +55,7 @@ header button.rounded-circle svg{color: #292929; font-size: 18px; transition: 0.
     margin-right: 10px;
 }
 
-.myAcc .userImg{
+ .userImg{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,7 @@ header button.rounded-circle svg{color: #292929; font-size: 18px; transition: 0.
     
 }
 
-.myAcc .userImg .rounded-circle{
+.userImg .rounded-circle{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,7 +77,7 @@ header button.rounded-circle svg{color: #292929; font-size: 18px; transition: 0.
 cursor: pointer;
 position: relative;
 }
-.myAcc .userImg .rounded-circle img{object-fit: cover;
+ .userImg .rounded-circle img{object-fit: cover;
 width: 100%;
 }
 
@@ -113,11 +113,37 @@ width: 100%;
 .head h4{
     font-size: 16px !important;
     margin: 0% !important;
+    color: #2d2929 !important;
 }
 
-.set{font-size: 16px !important;}
+.set{font-size: 16px !important;cursor: pointer;}
+
+
 .head{
     padding-left:15px;
     padding-right:15px;
     padding-bottom: 10px;
+}
+
+.downInfo{
+    font-size: 12px!important;
+    
+}
+
+.dropdownInfo{
+    padding-left:5px !important;
+}
+
+
+
+.text-sky{
+color: #0585f7 !important;
+font-size: 12px!important;  
+margin-bottom: 0px !important;
+font-weight: 600 !important;
+}
+
+.listdrop .css-1rju2q6-MuiButtonBase-root-MuiMenuItem-root {
+    background-color: #ebf6ff !important ; color: black !important;
+    padding: 10px 15px !important;
 }
