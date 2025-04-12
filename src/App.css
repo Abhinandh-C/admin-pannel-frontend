@@ -143,7 +143,7 @@ margin-bottom: 0px !important;
 font-weight: 600 !important;
 }
 
-.listdrop .css-1rju2q6-MuiButtonBase-root-MuiMenuItem-root {
-    background-color: #ebf6ff !important ; color: black !important;
-    padding: 10px 15px !important;
+.listdrop{
+    color: black !important;
+    padding: 1px 15px !important;
 }
