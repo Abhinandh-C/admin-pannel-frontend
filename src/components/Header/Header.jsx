@@ -199,7 +199,7 @@ const Header = () => {
 
                 <div style={{ maxHeight: "300px", overflowY: "auto" }}>
 
-                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px"}}>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
                 
                  <div className="d-flex listdrop">
                  <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
@@ -223,7 +223,7 @@ const Header = () => {
                   </div>
                  </div>
                 </MenuItem>
-                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px"}}>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
                 
                  <div className="d-flex listdrop">
                  <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
@@ -247,7 +247,127 @@ const Header = () => {
                   </div>
                  </div>
                 </MenuItem>
-                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px"}}>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
+                
+                 <div className="d-flex listdrop">
+                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
+                    <span className="rounded-circle">
+                      <img src={pic} alt="profilePic" />
+                    </span>
+                  </div>
+
+                  <div className="dropdownInfo">
+                    
+                      <span className="downInfo">
+                        <b>Sruthi </b>
+                        added to his favorite{" "}
+                        <p style={{marginBottom:"4px"}}>
+                          list <b>leather type mobile pouch</b>
+                        </p>
+                        
+                      </span>
+                    
+                    <p className="text-sky">few seconds ago..</p>
+                  </div>
+                 </div>
+                </MenuItem>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
+                
+                 <div className="d-flex listdrop">
+                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
+                    <span className="rounded-circle">
+                      <img src={pic} alt="profilePic" />
+                    </span>
+                  </div>
+
+                  <div className="dropdownInfo">
+                    
+                      <span className="downInfo">
+                        <b>Sruthi </b>
+                        added to his favorite{" "}
+                        <p style={{marginBottom:"4px"}}>
+                          list <b>leather type mobile pouch</b>
+                        </p>
+                        
+                      </span>
+                    
+                    <p className="text-sky">few seconds ago..</p>
+                  </div>
+                 </div>
+                </MenuItem>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
+                
+                 <div className="d-flex listdrop">
+                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
+                    <span className="rounded-circle">
+                      <img src={pic} alt="profilePic" />
+                    </span>
+                  </div>
+
+                  <div className="dropdownInfo">
+                    
+                      <span className="downInfo">
+                        <b>Sruthi </b>
+                        added to his favorite{" "}
+                        <p style={{marginBottom:"4px"}}>
+                          list <b>leather type mobile pouch</b>
+                        </p>
+                        
+                      </span>
+                    
+                    <p className="text-sky">few seconds ago..</p>
+                  </div>
+                 </div>
+                </MenuItem>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
+                
+                 <div className="d-flex listdrop">
+                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
+                    <span className="rounded-circle">
+                      <img src={pic} alt="profilePic" />
+                    </span>
+                  </div>
+
+                  <div className="dropdownInfo">
+                    
+                      <span className="downInfo">
+                        <b>Sruthi </b>
+                        added to his favorite{" "}
+                        <p style={{marginBottom:"4px"}}>
+                          list <b>leather type mobile pouch</b>
+                        </p>
+                        
+                      </span>
+                    
+                    <p className="text-sky">few seconds ago..</p>
+                  </div>
+                 </div>
+                </MenuItem>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
+                
+                 <div className="d-flex listdrop">
+                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
+                    <span className="rounded-circle">
+                      <img src={pic} alt="profilePic" />
+                    </span>
+                  </div>
+
+                  <div className="dropdownInfo">
+                    
+                      <span className="downInfo">
+                        <b>Sruthi </b>
+                        added to his favorite{" "}
+                        <p style={{marginBottom:"4px"}}>
+                          list <b>leather type mobile pouch</b>
+                        </p>
+                        
+                      </span>
+                    
+                    <p className="text-sky">few seconds ago..</p>
+                  </div>
+                 </div>
+                </MenuItem>
+                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px",marginLeft:"6px",marginRight:"6px",borderRadius:"5px"}}>
                 
                  <div className="d-flex listdrop">
                  <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
@@ -272,106 +392,10 @@ const Header = () => {
                  </div>
                 </MenuItem>
                
-                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px"}}>
-                
-                 <div className="d-flex listdrop">
-                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
-                    <span className="rounded-circle">
-                      <img src={pic} alt="profilePic" />
-                    </span>
-                  </div>
-
-                  <div className="dropdownInfo">
-                    
-                      <span className="downInfo">
-                        <b>Sruthi </b>
-                        added to his favorite{" "}
-                        <p style={{marginBottom:"4px"}}>
-                          list <b>leather type mobile pouch</b>
-                        </p>
-                        
-                      </span>
-                    
-                    <p className="text-sky">few seconds ago..</p>
-                  </div>
-                 </div>
-                </MenuItem>
-               
-                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px"}}>
-                
-                 <div className="d-flex listdrop">
-                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
-                    <span className="rounded-circle">
-                      <img src={pic} alt="profilePic" />
-                    </span>
-                  </div>
-
-                  <div className="dropdownInfo">
-                    
-                      <span className="downInfo">
-                        <b>Sruthi </b>
-                        added to his favorite{" "}
-                        <p style={{marginBottom:"4px"}}>
-                          list <b>leather type mobile pouch</b>
-                        </p>
-                        
-                      </span>
-                    
-                    <p className="text-sky">few seconds ago..</p>
-                  </div>
-                 </div>
-                </MenuItem>
-               
-                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px"}}>
-                
-                 <div className="d-flex listdrop">
-                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
-                    <span className="rounded-circle">
-                      <img src={pic} alt="profilePic" />
-                    </span>
-                  </div>
-
-                  <div className="dropdownInfo">
-                    
-                      <span className="downInfo">
-                        <b>Sruthi </b>
-                        added to his favorite{" "}
-                        <p style={{marginBottom:"4px"}}>
-                          list <b>leather type mobile pouch</b>
-                        </p>
-                        
-                      </span>
-                    
-                    <p className="text-sky">few seconds ago..</p>
-                  </div>
-                 </div>
-                </MenuItem>
-               
-                <MenuItem onClick={HandleNotificationClose} style={{backgroundColor:"#ebf6ff ",marginBottom:"2px"}}>
-                
-                 <div className="d-flex listdrop">
-                 <div className="userImg" style={{ marginRight: "10px",marginTop:"5px" }}>
-                    <span className="rounded-circle">
-                      <img src={pic} alt="profilePic" />
-                    </span>
-                  </div>
-
-                  <div className="dropdownInfo">
-                    
-                      <span className="downInfo">
-                        <b>Sruthi </b>
-                        added to his favorite{" "}
-                        <p style={{marginBottom:"4px"}}>
-                          list <b>leather type mobile pouch</b>
-                        </p>
-                        
-                      </span>
-                    
-                    <p className="text-sky">few seconds ago..</p>
-                  </div>
-                 </div>
-                </MenuItem>
                 </div>
+                
+                <button className="noti">View All Notifications</button>
+                
               </Menu>
 
               <Button

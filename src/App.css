@@ -147,3 +147,24 @@ font-weight: 600 !important;
     color: black !important;
     padding: 1px 15px !important;
 }
+
+::-webkit-scrollbar{width: 5px !important; height: 5px !important;}
+::-webkit-scrollbar-thumb{background: #ccc !important;}
+
+.noti{
+    width: 290px;
+    height: 30px;
+    color: white !important;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    background-color: #0858f7;
+    border: none;
+    border-radius: 7px;
+    margin-left: 6px;
+    
+    
+    
+}
