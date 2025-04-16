@@ -16,30 +16,47 @@ import { TbAlertSquareFilled } from "react-icons/tb";
 import { GrOverview } from "react-icons/gr";
 import { IoDocuments } from "react-icons/io5";
 import { FaBloggerB } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 
 const Sidebar = () => {
   return (
-    <div className='sidebar'style={{overflowY:"auto"}}>
+    <div className='sidebar'>
       <ul>
         <p style={{fontWeight:"500", fontSize:"12px" ,color:"#b6b6b6", marginBottom:"0px"}}>MAIN PAGES</p>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><MdDashboard/></span>Dashboard<span className='arrow'><FaAngleRight /></span></Button>
+          <Link to="/">
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><MdDashboard/></span>Dashboard<span className='arrow'><FaAngleRight /></span></Button>
+</Link>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><PiExcludeSquareFill/></span>Products <span className='arrow'><FaAngleRight /></span></Button>
+         
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><PiExcludeSquareFill/></span>Products <span className='arrow'><FaAngleRight /></span></Button>
+      <ul className='submenu'>
+        <li> <Link to="#">Product List</Link></li>
+        <li> <Link to="#">Product View</Link></li>
+        <li> <Link to="#">Product Upload</Link></li>
+      </ul>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><IoMdCart/></span>Orders <span className='arrow'><FaAngleRight /></span></Button>
+          <Link to="/">
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><IoMdCart/></span>Orders <span className='arrow'><FaAngleRight /></span></Button>
+</Link>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><SiImessage/></span>Message <span className='arrow'><FaAngleRight /></span></Button>
+          <Link to="/">
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><SiImessage/></span>Message <span className='arrow'><FaAngleRight /></span></Button>
+</Link>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'>< FaBell /></span>Notification <span className='arrow'><FaAngleRight /></span></Button>
+          <Link to="/">
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< FaBell /></span>Notification <span className='arrow'><FaAngleRight /></span></Button>
+</Link>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'>< IoSettings /></span>Setting <span className='arrow'><FaAngleRight /></span></Button>
+          <Link to="/">
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< IoSettings /></span>Setting <span className='arrow'><FaAngleRight /></span></Button>
+</Link>
 </li>
     </ul>
 
@@ -52,22 +69,22 @@ const Sidebar = () => {
       <ul>
         <p style={{fontWeight:"500", fontSize:"12px" ,color:"#b6b6b6", marginBottom:"0px"}}>UI PAGES</p>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><TbAlertSquareFilled/></span>Alerts</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><TbAlertSquareFilled/></span>Alerts</Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><AiFillPicture/></span>Avatars</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><AiFillPicture/></span>Avatars</Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><FaHeading/></span>Headings</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><FaHeading/></span>Headings</Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'>< FaMouse /></span>Buttons</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< FaMouse /></span>Buttons</Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><  IoIosColorPalette  /></span>Colors </Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><  IoIosColorPalette  /></span>Colors </Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'>< SiSoundcharts /></span>Charts </Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< SiSoundcharts /></span>Charts </Button>
 </li>
     </ul>
 
@@ -76,16 +93,16 @@ const Sidebar = () => {
       <ul>
         <p style={{fontWeight:"500", fontSize:"12px" ,color:"#b6b6b6", marginBottom:"0px"}}>OTHER PAGES</p>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><GrOverview/></span>Overview</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><GrOverview/></span>Overview</Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><TbAlertSquareFilled/></span>Site Error</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><TbAlertSquareFilled/></span>Site Error</Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><IoDocuments/></span>Documentation</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><IoDocuments/></span>Documentation</Button>
 </li>
         <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 15px",alignItems:"center",textTransform:"capitalize",fontWeight:"500"}}><span className='icon'><FaBloggerB/></span>Change Log</Button>
+<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><FaBloggerB/></span>Change Log</Button>
 </li>
     </ul>
 
