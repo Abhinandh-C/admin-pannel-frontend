@@ -20,7 +20,7 @@ import { FaShieldAlt } from "react-icons/fa";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import Avatar from "@mui/material/Avatar";
+
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
