@@ -19,6 +19,8 @@ import {
 } from "react-icons/bs";
 
 import NewOrderTable from '../../components/sidebarContents/NewOrderTable';
+import AddProduct from '../sidebarContents/AddProduct';
+import ViewProduct from '../sidebarContents/ViewProduct';
 // import VisitorRating from '../SidebarContent/VisitorRating';
 import PieChart from '../sidebarContents/PieChart';
 // import LineChart from '../SidebarContent/LineChart';
@@ -27,6 +29,8 @@ import PieChart from '../sidebarContents/PieChart';
 // import SelsGraph from '../SidebarContent/SelsGraph';
 // import TodoList from '../TodoList/TodoList';
 import Home from '../../components/sidebarContents/Home';
+import OrderManagement from '../sidebarContents/OrderManagement';
+import UserList from '../sidebarContents/UserList';
 // import VisitorTracking from '../SidebarContent/VisitorTracking';
 // import Wigets from '../SidebarContent/Wigets';
 // import MailBox from '../SidebarContent/MailBox';
@@ -69,16 +73,16 @@ const Sidebar = () => {
                   <Nav.Link eventKey="seven"><BsFillPeopleFill /> Unic visitor</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="eight"><BsCalendar /> Calender</Nav.Link>
+                  <Nav.Link eventKey="eight"><BsCalendar /> Add Product</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="nine"><BsGraphUp /> Sales graph</Nav.Link>
+                  <Nav.Link eventKey="nine"><BsGraphUp />  Order Management</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="ten"><BsCardChecklist /> Todo list</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="eleven"><BsGear /> Widgets</Nav.Link>
+                  <Nav.Link eventKey="eleven"><BsGear /> View Product</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="twelve"><BsGear /> MailBox</Nav.Link>
@@ -119,27 +123,27 @@ const Sidebar = () => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="six">
                   <h4 className="text-center bg-primary p-2 text-white">User List</h4>
-                  {/* <Userinfo /> */}
+                  <UserList />
                 </Tab.Pane>
                 <Tab.Pane eventKey="seven">
                   <h4 className="text-center bg-primary p-2 text-white">Visitor Tracking</h4>
                   {/* <VisitorTracking /> */}
                 </Tab.Pane>
                 <Tab.Pane eventKey="eight">
-                  <h4 className="text-center bg-primary p-2 text-white">Calender</h4>
-                  {/* <Calender /> */}
+                  <h4 className="text-center bg-primary p-2 text-white">Add Product</h4>
+                  <AddProduct />
                 </Tab.Pane>
                 <Tab.Pane eventKey="nine">
-                  <h4 className="text-center bg-primary p-2 text-white">Sales Graph</h4>
-                  {/* <SelsGraph /> */}
+                  <h4 className="text-center bg-primary p-2 text-white">Order Management</h4>
+                  <OrderManagement />
                 </Tab.Pane>
                 <Tab.Pane eventKey="ten">
                   <h4 className="text-center bg-primary p-2 text-white">Todo List</h4>
                   {/* <TodoList /> */}
                 </Tab.Pane>
                 <Tab.Pane eventKey="eleven">
-                  <h4 className="text-center bg-primary p-2 text-white">Widgets</h4>
-                  {/* <Wigets /> */}
+                  <h4 className="text-center bg-primary p-2 text-white">View Product</h4>
+                  <ViewProduct />
                 </Tab.Pane>
                 <Tab.Pane eventKey="twelve">
                   {/* <MailBox /> */}
