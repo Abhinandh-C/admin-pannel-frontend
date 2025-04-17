@@ -5,12 +5,13 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
-        <div className="main d-flex">
+        <div className="w-100">
           <div className="sidebar-Wrapper">
             <Sidebar />
           </div>
