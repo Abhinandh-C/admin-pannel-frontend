@@ -1,113 +1,170 @@
-import React from 'react'
-import Button from "@mui/material/Button";
-import { FaAngleRight } from "react-icons/fa6";
-import { MdDashboard } from "react-icons/md";
-import { PiExcludeSquareFill } from "react-icons/pi";
-import { IoMdCart } from "react-icons/io";
-import { FaBell } from "react-icons/fa";
-import { SiImessage } from "react-icons/si";
-import { IoSettings } from "react-icons/io5";
-import { SiSoundcharts } from "react-icons/si";
-import { IoIosColorPalette } from "react-icons/io";
-import { FaHeading } from "react-icons/fa";
-import { FaMouse } from "react-icons/fa";
-import { AiFillPicture } from "react-icons/ai";
-import { TbAlertSquareFilled } from "react-icons/tb";
-import { GrOverview } from "react-icons/gr";
-import { IoDocuments } from "react-icons/io5";
-import { FaBloggerB } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Tab, Row, Col, Container, Nav } from 'react-bootstrap';
+// import '../Style/Style.css';
+// import admin from '../Images/self.jpg';
+// import star from '../Images/star.png';
 
+import {
+  FaHome,
+} from 'react-icons/fa';
+import {
+  BsCalendarFill,
+  BsCircleHalf,
+  BsFillPeopleFill,
+  BsFillPersonLinesFill,
+  BsCardChecklist,
+  BsCalendar,
+  BsGraphUp,
+  BsGear
+} from "react-icons/bs";
+
+// import NewOrderTable from '../SidebarContent/NewOrderTable';
+// import VisitorRating from '../SidebarContent/VisitorRating';
+import PieChart from '../sidebarContents/PieChart';
+// import LineChart from '../SidebarContent/LineChart';
+// import Userinfo from './UserInfo/Userinfo';
+// import Calender from '../Celender/Calender';
+// import SelsGraph from '../SidebarContent/SelsGraph';
+// import TodoList from '../TodoList/TodoList';
+import Home from '../../components/sidebarContents/Home';
+// import VisitorTracking from '../SidebarContent/VisitorTracking';
+// import Wigets from '../SidebarContent/Wigets';
+// import MailBox from '../SidebarContent/MailBox';
+// import Login from '../SidebarContent/Login';
 
 const Sidebar = () => {
+  document.title = "Home";
+
   return (
-    <div className='sidebar'>
-      <ul>
-        <p style={{fontWeight:"500", fontSize:"12px" ,color:"#b6b6b6", marginBottom:"0px"}}>MAIN PAGES</p>
-        <li>
-          <Link to="/">
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><MdDashboard/></span>Dashboard<span className='arrow'><FaAngleRight /></span></Button>
-</Link>
-</li>
-        <li>
-         
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><PiExcludeSquareFill/></span>Products <span className='arrow'><FaAngleRight /></span></Button>
-      <ul className='submenu'>
-        <li> <Link to="#">Product List</Link></li>
-        <li> <Link to="#">Product View</Link></li>
-        <li> <Link to="#">Product Upload</Link></li>
-      </ul>
-</li>
-        <li>
-          <Link to="/">
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><IoMdCart/></span>Orders <span className='arrow'><FaAngleRight /></span></Button>
-</Link>
-</li>
-        <li>
-          <Link to="/">
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><SiImessage/></span>Message <span className='arrow'><FaAngleRight /></span></Button>
-</Link>
-</li>
-        <li>
-          <Link to="/">
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< FaBell /></span>Notification <span className='arrow'><FaAngleRight /></span></Button>
-</Link>
-</li>
-        <li>
-          <Link to="/">
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< IoSettings /></span>Setting <span className='arrow'><FaAngleRight /></span></Button>
-</Link>
-</li>
-    </ul>
+        
+    <Fragment>
+        
+      <Container fluid>
+      
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          <Row className='mt-3'>
+                <div className='d-flex'>
+                <div >
+            <Col sm={2} className="border sidebarBg">
+                            <Nav variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="first"><FaHome /> <div> Home </div> </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="second"><BsCalendarFill /> New order</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="thard"><BsCircleHalf /> Visitor Rating</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="forth"><BsCircleHalf /> Pie Chart</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="five"><BsCircleHalf /> Line Chart</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="six"><BsFillPersonLinesFill /> User Information</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="seven"><BsFillPeopleFill /> Unic visitor</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="eight"><BsCalendar /> Calender</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="nine"><BsGraphUp /> Sales graph</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="ten"><BsCardChecklist /> Todo list</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="eleven"><BsGear /> Widgets</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="twelve"><BsGear /> MailBox</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="thertin"><BsGear /> Login</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="fortin"><BsGear /> Register</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="fiftin"><BsGear /> Settings</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+            </div>
+            <div className='container-fluid'>
+            <Col sm={50}>
+              <Tab.Content  >
+                <Tab.Pane eventKey="first">
+                  <Home />
+                </Tab.Pane>
+                <Tab.Pane eventKey="second">
+                  <h4 className="text-center bg-primary p-2 text-white">Order List</h4>
+                  {/* <NewOrderTable /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="thard">
+                  <h4 className="text-center bg-primary p-2 text-white">Visitor Rating</h4>
+                  {/* <VisitorRating /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="forth">
+                  <h4 className="text-center bg-primary p-2 text-white">Pie Chart</h4>
+                  <PieChart />
+                </Tab.Pane>
+                <Tab.Pane eventKey="five">
+                  <h4 className="text-center bg-primary p-2 text-white">Line Chart</h4>
+                  {/* <LineChart /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="six">
+                  <h4 className="text-center bg-primary p-2 text-white">User List</h4>
+                  {/* <Userinfo /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="seven">
+                  <h4 className="text-center bg-primary p-2 text-white">Visitor Tracking</h4>
+                  {/* <VisitorTracking /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="eight">
+                  <h4 className="text-center bg-primary p-2 text-white">Calender</h4>
+                  {/* <Calender /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="nine">
+                  <h4 className="text-center bg-primary p-2 text-white">Sales Graph</h4>
+                  {/* <SelsGraph /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="ten">
+                  <h4 className="text-center bg-primary p-2 text-white">Todo List</h4>
+                  {/* <TodoList /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="eleven">
+                  <h4 className="text-center bg-primary p-2 text-white">Widgets</h4>
+                  {/* <Wigets /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="twelve">
+                  {/* <MailBox /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="thertin">
+                  <h4 className="text-center bg-primary p-2 text-white">Login</h4>
+                  {/* <Login /> */}
+                </Tab.Pane>
+                <Tab.Pane eventKey="fortin">
+                  <h4 className="text-center bg-primary p-2 text-white">Register</h4>
+                  <h3>Settings</h3>
+                </Tab.Pane>
+                <Tab.Pane eventKey="fiftin">
+                  <h4 className="text-center bg-primary p-2 text-white">Settings</h4>
+                  <h3>Settings</h3>
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+            </div>
+            </div>
+          </Row>
+        </Tab.Container>
+      </Container>
+    </Fragment>
+  );
+};
 
-
-
-
-
-
-
-      <ul>
-        <p style={{fontWeight:"500", fontSize:"12px" ,color:"#b6b6b6", marginBottom:"0px"}}>UI PAGES</p>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><TbAlertSquareFilled/></span>Alerts</Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><AiFillPicture/></span>Avatars</Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><FaHeading/></span>Headings</Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< FaMouse /></span>Buttons</Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><  IoIosColorPalette  /></span>Colors </Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'>< SiSoundcharts /></span>Charts </Button>
-</li>
-    </ul>
-
-
-
-      <ul>
-        <p style={{fontWeight:"500", fontSize:"12px" ,color:"#b6b6b6", marginBottom:"0px"}}>OTHER PAGES</p>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><GrOverview/></span>Overview</Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><TbAlertSquareFilled/></span>Site Error</Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><IoDocuments/></span>Documentation</Button>
-</li>
-        <li>
-<Button className='w-100' style={{color:"#5d5c71",textAlign:"left",justifyContent:"left",borderRadius:"10px",padding:"12px 10px",alignItems:"center",textTransform:"capitalize",fontSize:"15px",fontWeight:"500"}}><span className='icon'><FaBloggerB/></span>Change Log</Button>
-</li>
-    </ul>
-
-    </div>
-  )
-}
-
-export default Sidebar
+export default Sidebar;
