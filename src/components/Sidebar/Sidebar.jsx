@@ -18,7 +18,7 @@ import {
   BsGear
 } from "react-icons/bs";
 
-// import NewOrderTable from '../SidebarContent/NewOrderTable';
+import NewOrderTable from '../../components/sidebarContents/NewOrderTable';
 // import VisitorRating from '../SidebarContent/VisitorRating';
 import PieChart from '../sidebarContents/PieChart';
 // import LineChart from '../SidebarContent/LineChart';
@@ -103,7 +103,7 @@ const Sidebar = () => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
                   <h4 className="text-center bg-primary p-2 text-white">Order List</h4>
-                  {/* <NewOrderTable /> */}
+                  <NewOrderTable />
                 </Tab.Pane>
                 <Tab.Pane eventKey="thard">
                   <h4 className="text-center bg-primary p-2 text-white">Visitor Rating</h4>
