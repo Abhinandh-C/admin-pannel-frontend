@@ -74,7 +74,7 @@ const PieChart = () => {
   };
 
   return (
-    <Container>
+    <Container >
       <Row>
         <Col className="border" style={{ height: "400px" }}>
           <ReusableChart type="pie" data={pieData1} options={commonOptions} />
