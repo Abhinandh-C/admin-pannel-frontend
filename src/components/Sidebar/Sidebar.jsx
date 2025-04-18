@@ -27,10 +27,11 @@ import PieChart from '../sidebarContents/PieChart';
 // import Userinfo from './UserInfo/Userinfo';
 // import Calender from '../Celender/Calender';
 // import SelsGraph from '../SidebarContent/SelsGraph';
-// import TodoList from '../TodoList/TodoList';
+import TodoList from '../../components/sidebarContents/TodoList';
 import Home from '../../components/sidebarContents/Home';
 import OrderManagement from '../sidebarContents/OrderManagement';
 import UserList from '../sidebarContents/UserList';
+import { Link } from 'react-router-dom';
 // import VisitorTracking from '../SidebarContent/VisitorTracking';
 // import Wigets from '../SidebarContent/Wigets';
 // import MailBox from '../SidebarContent/MailBox';
@@ -43,16 +44,16 @@ const Sidebar = () => {
         
     <Fragment>
         
-      <Container fluid>
+      <Container fluid >
       
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row className='mt-3'>
                 <div className='d-flex'>
-                <div >
+                <div className='sidebar' style={{maxHeight:"720px",overflowX:"hidden",overflowY:"auto"}}>
             <Col sm={2} className="border sidebarBg">
                             <Nav variant="pills" className="flex-column">
                 <Nav.Item>
-                  <Nav.Link eventKey="first"><FaHome /> <div> Home </div> </Nav.Link>
+                  <Nav.Link eventKey="first"><FaHome />  Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="second"><BsCalendarFill /> New order</Nav.Link>
@@ -101,9 +102,9 @@ const Sidebar = () => {
             </div>
             <div className='container-fluid'>
             <Col sm={50}>
-              <Tab.Content  >
+              <Tab.Content style={{maxHeight:"720px",overflowX:"auto"}} >
                 <Tab.Pane eventKey="first">
-                  <Home />
+                  <Home /><Link to="/"></Link>
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
                   <h4 className="text-center bg-primary p-2 text-white">Order List</h4>
@@ -139,7 +140,7 @@ const Sidebar = () => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="ten">
                   <h4 className="text-center bg-primary p-2 text-white">Todo List</h4>
-                  {/* <TodoList /> */}
+                  <TodoList />
                 </Tab.Pane>
                 <Tab.Pane eventKey="eleven">
                   <h4 className="text-center bg-primary p-2 text-white">View Product</h4>
