@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import Axios from '../Axios/axios';
+import { ToastContainer } from 'react-toastify';
+import { notifyError, notifySuccess } from '../utilities/utilities';
+
+
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -8,11 +12,12 @@ const AddProduct = () => {
     price: '',
     category: '',
     stock: '',
+    rating:''
   });
   const [images, setImages] = useState([]);
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleImageChange = (e) => {
@@ -21,26 +26,33 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Use FormData to send images
     const data = new FormData();
+
     Object.entries(formData).forEach(([key, value]) => {
       data.append(key, value);
     });
-    images.forEach((image, index) => {
-      data.append('image', image); // Assuming your backend uses multer
+
+    images.forEach((image) => {
+      data.append('image', image); // 'images' must match backend field name
     });
+    const token =localStorage.getItem('token')
 
     try {
-      await axios.post('http://localhost:5000/api/products/add', data, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+      await Axios.post('/admin/addproduct', data, {
+        headers: { 'Content-Type': 'multipart/form-data',
+           'Authorization': `Bearer ${token}`
+         },
+
       });
-      alert('Product added successfully!');
-      setFormData({ product_name: '', description: '', price: '', category: '', stock: '' });
+
+      
+      
+      notifySuccess('Product added successfully!');
+      setFormData({ product_name: '', description: '', price: '', category: '', stock: '',rating:'' });
       setImages([]);
     } catch (error) {
       console.error(error);
-      alert('Failed to add product');
+      notifyError('Failed to add product');
     }
   };
 
@@ -69,12 +81,18 @@ const AddProduct = () => {
           <input type="number" className="form-control" name="stock" value={formData.stock} onChange={handleChange} required />
         </div>
         <div className="mb-3">
+          <label className="form-label">Rating</label>
+          <input type="number" className="form-control" name="rating" value={formData.rating} onChange={handleChange} required />
+        </div>
+        <div className="mb-3">
           <label className="form-label">Images</label>
-          <input type="file" className="form-control" name="image" multiple onChange={handleImageChange} />
+          <input type="file" className="form-control" name="images" multiple onChange={handleImageChange} />
         </div>
         <button type="submit" className="btn btn-primary">Add Product</button>
       </form>
+    <ToastContainer/>
     </div>
+
   );
 };
 
