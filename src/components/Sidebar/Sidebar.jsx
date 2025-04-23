@@ -19,10 +19,10 @@ const Sidebar = () => {
 
   return (
     <Fragment>
-      <Container fluid>
+      <Container>
         <div
           className="sidebar"
-          style={{ maxHeight: "800px", overflowY: "auto" }}
+          style={{ maxHeight: "800px", overflowY: "auto" , overflowX:'hidden'}}
         >
           <ul className="border sidebarBg">
             <li>
@@ -96,7 +96,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
-              <Link to={"/orderList"}>
+              <Link to={"/ViewProduct"}>
                 <Button className="btn">
                   <BsGear /> View Product
                 </Button>
@@ -109,13 +109,7 @@ const Sidebar = () => {
                 </Button>
               </Link>
             </li>
-            <li>
-              <Link to={"/orderList"}>
-                <Button className="btn">
-                  <BsGear /> Login
-                </Button>
-              </Link>
-            </li>
+           
             <li>
               <Link to={"/orderList"}>
                 <Button className="btn">
