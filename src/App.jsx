@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/Dashboard";
+
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./components/sidebarContents/Home";
@@ -11,36 +11,57 @@ import UserList from "./components/sidebarContents/UserList";
 import AddProduct from "./components/sidebarContents/AddProduct";
 import OrderManagement from "./components/sidebarContents/OrderManagement";
 import TodoList from "./components/sidebarContents/TodoList";
-
+import Authentication from "./components/sidebarContents/Authentication";
+import ViewProducts from "./components/sidebarContents/ViewProduct";
 
 function App() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <div className="d-flex">
-        <div>
-          
-            <Sidebar />
-          </div>
-        
-            <div className="w-100 content" style={
-                {maxHeight:"720px",overflowX:"hidden",overflowY:"auto"}
-              }> 
-            <Routes>
-              <Route path="/home" exact={true} element={<Home />} />
-              <Route path="/orderList" exact={true} element={<NewOrderTable/>} />
-              <Route path="/piechart" exact={true} element={<PieChart />} />
-              <Route path="/userinformation" exact={true} element={<UserList />} />
-              <Route path="/AddProduct" exact={true} element={<AddProduct />} />
-              <Route path="/ordermangement" exact={true} element={<OrderManagement />} />
-              <Route path="/todolist" exact={true} element={<TodoList />} />
-              <Route path="/Dashboard" exact={true} element={<Dashboard />} />
-              <Route path="/Dashboard" exact={true} element={<Dashboard />} />
-              <Route path="/Dashboard" exact={true} element={<Dashboard />} />
-            </Routes>
-            </div>
-            </div>
+        <Routes>
+          {/* Login route */}
+          <Route path="/" element={<Authentication />} />
+
+          {/* Protected routes - show only if logged in */}
+          {isLoggedIn && (
+            <Route
+              path="/*"
+              element={
+                <>
+                  <Header />
+                  <div className="d-flex">
+                    <div>
+                      <Sidebar />
+                    </div>
+                    <div
+                      className="w-100 content"
+                      style={{
+                        maxHeight: "720px",
+                        overflowX: "hidden",
+                        overflowY: "auto",
+                      }}
+                    >
+                      <Routes>
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/orderList" element={<NewOrderTable />} />
+                        <Route path="/piechart" element={<PieChart />} />
+                        <Route path="/userinformation" element={<UserList />} />
+                        <Route path="/AddProduct" element={<AddProduct />} />
+                        <Route path="/ViewProduct" element={<ViewProducts />} />
+                        <Route
+                          path="/ordermangement"
+                          element={<OrderManagement />}
+                        />
+                        <Route path="/todolist" element={<TodoList />} />
+                      </Routes>
+                    </div>
+                  </div>
+                </>
+              }
+            />
+          )}
+        </Routes>
       </BrowserRouter>
     </>
   );
