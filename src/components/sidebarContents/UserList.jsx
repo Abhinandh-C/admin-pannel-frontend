@@ -1,3 +1,4 @@
+import Axios from "../Axios/axios";
 import React, { useState, useEffect } from "react";
 import {
   Table,
@@ -8,51 +9,35 @@ import {
   Badge,
   Container,
 } from "react-bootstrap";
+import { notifyError } from "../utilities/utilities";
 
-const dummyUsers = [
-  {
-    _id: "1",
-    name: "Alice Johnson",
-    email: "alice@example.com",
-    mobile: 9876543210,
-    gender: "Female",
-    role: "user",
-    active: true,
-  },
-  {
-    _id: "2",
-    name: "Bob Smith",
-    email: "bob@example.com",
-    mobile: 9876543211,
-    gender: "Male",
-    role: "user",
-    active: false,
-  },
-  {
-    _id: "3",
-    name: "Charlie David",
-    email: "charlie@example.com",
-    mobile: 9876543212,
-    gender: "Male",
-    role: "user",
-    active: true,
-  },
-  {
-    _id: "4",
-    name: "Daisy Green",
-    email: "daisy@example.com",
-    mobile: 9876543213,
-    gender: "Female",
-    role: "user",
-    active: false,
-  },
-];
+
 
 const UserList = () => {
-  const [users, setUsers] = useState(dummyUsers);
+  const [users, setUsers] = useState([]);
   const [searchName, setSearchName] = useState("");
   const [filterGender, setFilterGender] = useState("");
   const [filterBlockStatus, setFilterBlockStatus] = useState("");
+
+
+
+
+  const fetchusers = async ()=>{
+    try {
+     const res = await Axios.get("/admin/viewuser")
+     console.log("Fetched users:", res.data); 
+     setUsers (res.data.user)
+      
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    notifyError("No user available");
+    }
+  }
+
+  useEffect(()=>{
+    fetchusers()
+  },[])
+
 
   const handleDelete = (id) => {
     setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
