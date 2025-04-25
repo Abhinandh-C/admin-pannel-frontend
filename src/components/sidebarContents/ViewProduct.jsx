@@ -8,11 +8,12 @@ import {
   Button,
   Badge,
   Image,
+  Modal,
 } from "react-bootstrap";
 import Axios from "../Axios/axios";
 import { ToastContainer } from "react-toastify";
 import { notifyError, notifySuccess } from "../utilities/utilities";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaEdit } from "react-icons/fa";
 
 const ViewProducts = () => {
   const [products, setProducts] = useState([]);
@@ -20,17 +21,19 @@ const ViewProducts = () => {
   const [filterCategory, setFilterCategory] = useState("");
   const [filterStock, setFilterStock] = useState("");
 
+  // Modal States
+  const [showModal, setShowModal] = useState(false);
+  const [editProduct, setEditProduct] = useState(null);
+  const [isUpdating, setIsUpdating] = useState(false);
+
   const fetchProducts = async () => {
     const token = localStorage.getItem("token");
     try {
       const response = await Axios.get("/admin/viewproduct", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(response.data.products);
     } catch (error) {
-      console.error(error);
       notifyError("Failed to fetch products");
     }
   };
@@ -39,21 +42,41 @@ const ViewProducts = () => {
     const token = localStorage.getItem("token");
     try {
       await Axios.delete(`/admin/deleteproduct/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       });
       notifySuccess("Product deleted successfully");
       fetchProducts();
     } catch (error) {
-      console.error(error);
       notifyError("Failed to delete product");
     }
   };
 
+  const handleEdit = (product) => {
+    setEditProduct(product);
+    setShowModal(true);
+  };
+
+ 
+const handleUpdate = async () => {
+  setIsUpdating(true);
+ 
+  try {
+    await Axios.put(`/admin/updateproduct/${editProduct._id}`, editProduct,);
+    notifySuccess("Product updated successfully");
+    setShowModal(false);
+    fetchProducts();
+  } catch (error) {
+    notifyError("Failed to update product");
+  } finally {
+    setIsUpdating(false);
+  }
+};
+
   useEffect(() => {
     fetchProducts();
   }, []);
+
+ 
 
   const filteredProducts = products.filter((product) => {
     const matchName = product.product_name
@@ -139,7 +162,7 @@ const ViewProducts = () => {
               <tr key={product._id}>
                 <td>
                   <Image
-                   src={`http://localhost:3000${product.image[0]}`} 
+                    src={`http://localhost:3000${product.image[0]}`}
                     alt={product.product_name}
                     rounded
                     width={80}
@@ -161,6 +184,14 @@ const ViewProducts = () => {
                 <td>{product.rating}</td>
                 <td className="text-center">
                   <Button
+                    variant="warning"
+                    size="sm"
+                    className="me-2"
+                    onClick={() => handleEdit(product)}
+                  >
+                    <FaEdit />
+                  </Button>
+                  <Button
                     variant="danger"
                     size="sm"
                     onClick={() => deleteProduct(product._id)}
@@ -173,6 +204,83 @@ const ViewProducts = () => {
           )}
         </tbody>
       </Table>
+
+      {/* Update Product Modal */}
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Product</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {editProduct && (
+            <>
+              <Form.Group className="mb-3">
+                <Form.Label>Product Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={editProduct.product_name}
+                  onChange={(e) =>
+                    setEditProduct({
+                      ...editProduct,
+                      product_name: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  value={editProduct.description}
+                  onChange={(e) =>
+                    setEditProduct({
+                      ...editProduct,
+                      description: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Price (₹)</Form.Label>
+                <Form.Control
+                  type="number"
+                  value={editProduct.price}
+                  onChange={(e) =>
+                    setEditProduct({
+                      ...editProduct,
+                      price: Number(e.target.value),
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Stock</Form.Label>
+                <Form.Control
+                  type="number"
+                  value={editProduct.stock}
+                  onChange={(e) =>
+                    setEditProduct({
+                      ...editProduct,
+                      stock: Number(e.target.value),
+                    })
+                  }
+                />
+              </Form.Group>
+            </>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleUpdate}>
+            Update
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <ToastContainer />
     </Container>
   );
