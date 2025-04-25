@@ -35,12 +35,12 @@ const AddProduct = () => {
     images.forEach((image) => {
       data.append('image', image); // 'images' must match backend field name
     });
-    const token =localStorage.getItem('token')
+    
 
     try {
       await Axios.post('/admin/addproduct', data, {
         headers: { 'Content-Type': 'multipart/form-data',
-           'Authorization': `Bearer ${token}`
+           
          },
 
       });
