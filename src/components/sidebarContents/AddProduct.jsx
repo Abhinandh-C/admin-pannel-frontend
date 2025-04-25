@@ -51,7 +51,7 @@ const AddProduct = () => {
       setFormData({ product_name: '', description: '', price: '', category: '', stock: '',rating:'' });
       setImages([]);
     } catch (error) {
-      console.error(error);
+    
       notifyError('Failed to add product');
     }
   };
