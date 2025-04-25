@@ -139,7 +139,7 @@ const ViewProducts = () => {
               <tr key={product._id}>
                 <td>
                   <Image
-                    src={product.image || "https://via.placeholder.com/80"}
+                   src={`http://localhost:3000${product.image[0]}`} 
                     alt={product.product_name}
                     rounded
                     width={80}
