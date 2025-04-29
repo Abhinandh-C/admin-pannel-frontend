@@ -25,11 +25,11 @@ const UserList = () => {
   const fetchusers = async ()=>{
     try {
      const res = await Axios.get("/admin/viewuser")
-     console.log("Fetched users:", res.data); 
+  
      setUsers (res.data.user)
       
     } catch (error) {
-      console.error("Error fetching users:", error);
+   
     notifyError("No user available");
     }
   }
