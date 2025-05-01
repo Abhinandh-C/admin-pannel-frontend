@@ -13,6 +13,7 @@ import OrderManagement from "./components/sidebarContents/OrderManagement";
 import TodoList from "./components/sidebarContents/TodoList";
 import Authentication from "./components/sidebarContents/Authentication";
 import ViewProducts from "./components/sidebarContents/ViewProduct";
+import UnicVisitor from "./components/sidebarContents/unicVisitor";
 
 function App() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -49,6 +50,7 @@ function App() {
                         <Route path="/userinformation" element={<UserList />} />
                         <Route path="/AddProduct" element={<AddProduct />} />
                         <Route path="/ViewProduct" element={<ViewProducts />} />
+                        <Route path="/unicVisitor" element={<UnicVisitor />} />
                         <Route
                           path="/ordermangement"
                           element={<OrderManagement />}
