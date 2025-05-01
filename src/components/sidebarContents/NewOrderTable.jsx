@@ -1,42 +1,44 @@
 import { Table } from 'bootstrap-4-react/lib/components';
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-
+import Axios from '../Axios/axios';
+import { notifyError } from "../utilities/utilities";
 
 const NewOrderTable = () => {
-  const [tableData, setTableData] = useState([
-    { no: '1', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '2', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '3', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '4', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '5', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '6', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '7', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '8', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '9', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '10', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '11', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '12', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '13', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '14', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '15', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '16', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '17', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '18', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '19', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '20', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '21', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' },
-    { no: '22', name: 'Rayhan', email: 'admin@gmail.com', phNumber: '+96605555555', address: 'H-101,R-102,F-103', quantity: '1', price: '200', img: '' }
-  ]);
-
+  const [tableData, setTableData] = useState([]);
+  const fetchOrders = async () => {
+    try {
+      const res = await Axios.get("/viewallorder", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+  
+      const data = res.data;
+      if (Array.isArray(data)) {
+        setTableData(data);
+      } else if (Array.isArray(data.orderdetails)) {
+        setTableData(data.orderdetails);
+      } else {
+        console.warn("Unexpected response structure:", data);
+        setTableData([]);
+      }
+    } catch (error) {
+      notifyError("No Order available");
+      console.error("Error fetching orders:", error);
+    }
+  };
  
 
 
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
   return (
     <Container className="mt-4">
       <h4 className="mb-3">Order List</h4>
-      <Table striped bordered hover responsive>
+      <Table responsive="sm" striped bordered hover>
         <thead className="table-primary">
           <tr>
             <th>No</th>
@@ -50,23 +52,56 @@ const NewOrderTable = () => {
           </tr>
         </thead>
         <tbody>
-          {tableData.map((row, index) => (
-            <tr key={index}>
-              <td>{row.no}</td>
-              <td>{row.name}</td>
-              <td>{row.email}</td>
-              <td>{row.phNumber}</td>
-              <td>{row.address}</td>
-              <td>{row.quantity}</td>
-              <td>{row.price}</td>
-              <td>
-                {row.img ? <img src={row.img} alt="Product" style={{ width: '40px' }} /> : 'No Image'}
-              </td>
+          {tableData.map((order, index) => (
+            <tr key={order.id || index}>
+              <td>{index + 1}</td>
+              <td>{order.address?.firstName}</td>
+              <td>{order.address?.email}</td>
+              <td>{order.address?.PhoneNumber}</td>
+              <td>{order.address?.address},{order.address?.city},{order.address?.state},</td>
+             <td>
+  {order.products?.map((p, i) => (
+    <div key={i}>{p.quantity}</div>
+  ))}
+</td>
+<td>
+  {order.products?.map((p, i) => (
+    <div key={i}>₹{p.price}</div>
+  ))}
+</td>
+<td>
+  {order.products?.map((p, i) => (
+    <div key={i}>
+      
+      {Array.isArray(p.productid?.image) && p.productid.image.length > 0 ? (
+        
+
+  <img
+    src={`http://localhost:3000${p.productid.image[0]}`}
+    
+    alt="Product"
+    style={{ width: '40px', marginBottom: '5px' }}
+  />
+  
+) : (
+  'No Image'
+)}
+
+    </div>
+    
+  ))}
+</td>
+
+
+
+
             </tr>
           ))}
         </tbody>
+        
       </Table>
     </Container>
+    
   );
 };
 
