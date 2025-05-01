@@ -39,17 +39,41 @@ const UserList = () => {
   },[])
 
 
-  const handleDelete = (id) => {
-    setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
-  };
+  const handleDelete = async (id) => {
 
-  const handleToggleBlock = (id) => {
-    setUsers((prevUsers) =>
-      prevUsers.map((user) =>
-        user._id === id ? { ...user, active: !user.active } : user
-      )
-    );
+    try { 
+
+      await Axios.delete(`/admin/deleteuser/${id}`,{
+
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      
+      setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
+    } catch (error) {
+      notifyError("Failed to update user status");
+    }
+    };
+
+  const handleToggleBlock = async (id) => {
+    try {
+      await Axios.put(`/admin/blockuser/${id}`, {}, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+  
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user._id === id ? { ...user, active: !user.active } : user
+        )
+      );
+    } catch (error) {
+      notifyError("Failed to update user status");
+    }
   };
+  
 
   const filteredUsers = users.filter((user) => {
     const matchName = user.name.toLowerCase().includes(searchName.toLowerCase());
@@ -126,7 +150,7 @@ const UserList = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.mobile}</td>
-                <td>{user.gender}</td>
+                <td>{user.Gender}</td>
                 <td>
                   {user.active ? (
                     <Badge bg="success">Active</Badge>
