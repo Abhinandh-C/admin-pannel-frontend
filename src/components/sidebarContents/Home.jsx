@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   useEffect(() => {
-    console.log('Home loaded');
+    
   }, []);
 
 
@@ -21,7 +21,7 @@ const Home = () => {
           <Col sm={12} md={3} lg={3}>
             <Card border="primary" className="bg-primary" style={{ width: '16rem' }}>
               <Card.Body style={{ cursor: "pointer" }}>
-                <Card.Title className="display-2 text-white">150</Card.Title>
+                <Card.Title className="display-2 text-white">1</Card.Title>
                 <Card.Text className="text-white">
                   New Orders
                 </Card.Text>
@@ -39,7 +39,7 @@ const Home = () => {
           <Col sm={12} md={3} lg={3}>
             <Card border="primary" className="bg-success" style={{ width: '16rem' }}>
               <Card.Body>
-                <Card.Title className="display-2 text-white">55%</Card.Title>
+                <Card.Title className="display-2 text-white">5%</Card.Title>
                 <Card.Text className="text-white">
                   Bounce Rate
                 </Card.Text>
@@ -51,24 +51,37 @@ const Home = () => {
           <Col sm={12} md={3} lg={3}>
             <Card border="primary" className="bg-warning" style={{ width: '16rem' }}>
               <Card.Body>
-                <Card.Title className="display-2 text-white">154</Card.Title>
+                <Card.Title className="display-2 text-white">3</Card.Title>
                 <Card.Text className="text-white">
                   User Registration
                 </Card.Text>
               </Card.Body>
-              <Card.Footer className="text-white">More info <AiOutlineDoubleRight /></Card.Footer>
+              <Card.Footer>
+                
+                 <Link to="/userinformation" className="text-white text-decoration-none">
+                More info <AiOutlineDoubleRight />
+                
+                </Link>
+                </Card.Footer>
             </Card>
           </Col>
 
           <Col sm={12} md={3} lg={3}>
             <Card border="primary" className="bg-info" style={{ width: '16rem' }}>
               <Card.Body>
-                <Card.Title className="display-2 text-white">150</Card.Title>
+                <Card.Title className="display-2 text-white">1</Card.Title>
                 <Card.Text className="text-white">
                   Unic Visitor
                 </Card.Text>
               </Card.Body>
-              <Card.Footer className="text-white">More info <AiOutlineDoubleRight /></Card.Footer>
+              <Card.Footer >
+                
+                 <Link to="/unicVisitor" className="text-white text-decoration-none">
+                
+                More info <AiOutlineDoubleRight />
+                
+                </Link>
+                </Card.Footer>
             </Card>
           </Col>
 
