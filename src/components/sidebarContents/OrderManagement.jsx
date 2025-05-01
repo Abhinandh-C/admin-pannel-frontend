@@ -46,7 +46,7 @@ const OrderManagement = () => {
   const handleStatusUpdate = async (id, newStatus) => {
     try {
       const res = await Axios.put(
-        "/updateorder/:id",
+        `/updateorder/${id}`,
         { Status: newStatus },
         {
           headers: {
@@ -70,8 +70,9 @@ const OrderManagement = () => {
       <table className="table table-bordered mt-3">
         <thead className="table-dark">
           <tr>
-            <th>#</th>
-            <th>Customer</th>
+            <th>No.</th>
+            <th>Customer Name</th>
+            <th>Email</th>
             <th>PhoneNumber</th>
             <th>Status</th>
             <th>Actions</th>
@@ -82,6 +83,7 @@ const OrderManagement = () => {
             <tr key={order._id}>
               <td>{i + 1}</td>
               <td>{order.address?.firstName || "N/A"}</td>
+              <td>{order.address?.email || "N/A"}</td>
               <td>{order.address?.PhoneNumber || "N/A"}</td>
               <td>
                 <span
@@ -158,21 +160,29 @@ const OrderManagement = () => {
               <div className="row">
                 {selectedOrder.products?.map((item, index) => (
                   <div key={index} className="col-md-6 mb-3">
-                    <div className="card">
-                      <img
-                        src={item.image}
-                        className="card-img-top"
-                        alt={item.name}
-                        style={{ height: "200px", objectFit: "contain" }}
-                      />
+                    <div className="card" style={{width:"200px"}}>
+                    {Array.isArray(item.productid?.image) && item.productid.image.length > 0 ? (
+        
+
+        <img
+          src={`http://localhost:3000${item.productid.image[0]}`}
+          
+          alt="Product"
+           className="card-img-top"
+          style={{ height: "200px", objectFit: "contain" }}
+        />
+        
+      ) : (
+        'No Image'
+      )}
                       <div className="card-body">
-                        <h6 className="card-title">{item.name}</h6>
-                        <p className="card-text">
-                          Quantity: {item.quantity}
+                        <h6 className="card-title" style={{color:"black"}}>{item.productid.product_name}</h6>
+                        <p className="card-text" style={{color:"green" ,display:"flex",justifyContent:"space-between"}}>
+                          Quantity:{item.quantity}
                           <br />
                           Price: ₹{item.price}
                           <br />
-                          Total: ₹{item.price * item.quantity}
+                          Total Amount: ₹{item.price * item.quantity}
                         </p>
                       </div>
                     </div>
@@ -183,7 +193,7 @@ const OrderManagement = () => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose} style={{display:"flex",justifyContent:"center",alignItems:"center" ,width:"200px", backgroundColor:"red",color:"white"}}>
             Close
           </Button>
         </Modal.Footer>
