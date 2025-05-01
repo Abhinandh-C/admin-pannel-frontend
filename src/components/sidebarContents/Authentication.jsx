@@ -15,7 +15,7 @@ const Authentication = () => {
       const response = await Axios.post('/login', { email, password }, {headers:{
         'Content-Type':'application/json'
       }, withCredentials: true });
-console.log(email,password,'asfkjhgsfnzkj');
+
 
       // Assuming backend responds with { token: "..." } or { user, token }
       if (response.status === 200) {
