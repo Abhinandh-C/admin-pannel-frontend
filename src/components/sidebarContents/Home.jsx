@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { AiOutlineDoubleRight } from "react-icons/ai";
 import PieChart from './PieChart';
-// import { Link } from 'react-router-dom';
+
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
